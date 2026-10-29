@@ -47,7 +47,8 @@
     .topbar nav a:hover { color: var(--accent); text-decoration: underline; text-underline-offset: 6px; }
 
     /* hero */
-    .hero { padding: 4.5rem 0 3.5rem; }
+    .hero { padding: 4.5rem 0 3.5rem; display: grid; grid-template-columns: 1fr 300px; gap: 3.5rem; align-items: center; }
+    .portrait { width: 100%; height: auto; aspect-ratio: 4 / 5; object-fit: cover; object-position: center 25%; border-radius: 14px; border: 1px solid var(--line); background: var(--surface); }
     .hero h1 {
       font-family: var(--display);
       font-weight: 700;
@@ -112,7 +113,7 @@
     .todo { background: #fff3cd; border: 1px dashed #b58900; padding: 0.6rem 0.8rem; border-radius: 6px; font-size: 0.95rem; }
 
     /* in progress */
-    .progress-list { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+    .progress-list { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem 2.5rem; }
     .progress-list li { border-top: 2px solid var(--ink); padding-top: 0.75rem; }
     .progress-list strong { display: block; font-family: var(--display); font-size: 1.1rem; margin-bottom: 0.25rem; }
     .progress-list span { font-size: 0.95rem; color: var(--muted); display: block; }
@@ -137,7 +138,8 @@
       .return { margin: 0 0 2.5rem; border-top: 2px dashed var(--accent); border-radius: 10px; }
       .module-list { grid-template-columns: 1fr; }
       .progress-list { grid-template-columns: 1fr; }
-      .hero { padding-top: 2.5rem; }
+      .hero { padding-top: 2.5rem; grid-template-columns: 1fr; gap: 2rem; }
+      .portrait { max-width: 260px; }
     }
     @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
   </style>
@@ -157,6 +159,7 @@
 
   <main id="top">
     <section class="hero">
+      <div class="hero-text">
       <h1>I design circuits and build the robots they run.</h1>
       <p class="lede">Mechatronics Engineering student at the University of Waterloo. My work sits between custom PCBs, embedded software, and automation hardware.</p>
       <p class="status">Open to Summer 2027 co-op roles in embedded systems, PCB design, and robotics. Currently building a self-driving lab at the Acceleration Consortium, University of Toronto.</p>
@@ -165,6 +168,8 @@
         <a class="btn" href="https://www.linkedin.com/in/thea-bakker" target="_blank" rel="noopener">LinkedIn</a>
         <a class="btn" href="mailto:thea.bakker@uwaterloo.ca">Email me</a>
       </div>
+      </div>
+      <img class="portrait" src="profile.jpg" alt="Portrait of Thea Bakker" width="360" height="450">
     </section>
 
     <!-- FEATURED: BUCK CONVERTER -->
@@ -318,6 +323,17 @@
 
       <article class="row compact">
         <div class="shots">
+          <button class="shot" type="button" data-src="LDO_1.jpg" data-alt="Low-dropout voltage regulator PCB, view 1"><img src="LDO_1.jpg" alt="Low-dropout voltage regulator PCB, view 1" loading="lazy"></button>
+          <button class="shot" type="button" data-src="LDO_2.jpg" data-alt="Low-dropout voltage regulator PCB, view 2"><img src="LDO_2.jpg" alt="Low-dropout voltage regulator PCB, view 2" loading="lazy"></button>
+        </div>
+        <div>
+          <h3>Low-dropout regulator PCB</h3>
+          <p>My first board designed from scratch in Altium Designer: schematic capture, component selection, feedback resistor sizing, input and output decoupling, and full layout.</p>
+        </div>
+      </article>
+
+      <article class="row compact">
+        <div class="shots">
           <button class="shot" type="button" data-src="synth1.jpg" data-alt="Atari Punk Console synthesizer circuit, view 1"><img src="synth1.jpg" alt="Atari Punk Console synthesizer circuit, view 1" loading="lazy"></button>
           <button class="shot" type="button" data-src="synth2.jpg" data-alt="Atari Punk Console synthesizer circuit, view 2"><img src="synth2.jpg" alt="Atari Punk Console synthesizer circuit, view 2" loading="lazy"></button>
         </div>
@@ -346,7 +362,6 @@
       <ul class="progress-list">
         <li><strong>Custom real-time operating system</strong><span>Multi-threading, context switching, task scheduling, and Cortex-M4 register management, written from scratch for the STM32F401RE.</span></li>
         <li><strong>Self-balancing robot</strong><span>Stepper-driven, with an IMU and a PID controller on an STM32 Nucleo-F401RE. Mechanical design adapted from an open-source model and 3D printed.</span></li>
-        <li><strong>Low-dropout regulator PCB</strong><span>Designed from scratch in Altium Designer: schematic, feedback network sizing, decoupling, and layout.</span></li>
       </ul>
     </section>
   </main>
