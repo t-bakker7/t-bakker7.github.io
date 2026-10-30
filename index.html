@@ -81,6 +81,12 @@
     .shots { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; }
     .shots .shot { aspect-ratio: 4 / 3; }
 
+    /* analog project: schematic + plots */
+    .shots-3 { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; }
+    .shots-3 .shot { background: #fff; padding: 0.4rem; }
+    .shots-3 .shot img { height: auto; object-fit: contain; }
+    .shots-3 .wide { grid-column: 1 / -1; }
+
     /* featured: buck converter */
     .feature { display: grid; grid-template-columns: 1.15fr 1fr; gap: 3rem; align-items: start; }
     .board-shots { display: grid; gap: 0.75rem; }
@@ -223,8 +229,8 @@
 
 
       <div class="shots" style="max-width:760px;margin:0 0 3rem">
-        <button class="shot" type="button" data-src="UNITE_left_side.jpg" data-alt="The UNITE self-driving lab, left side"><img src="UNITE_left_side.jpg" alt="The UNITE self-driving lab, left side" loading="lazy"></button>
-        <button class="shot" type="button" data-src="UNITE_right_side.jpg" data-alt="The UNITE self-driving lab, right side"><img src="UNITE_right_side.jpg" alt="The UNITE self-driving lab, right side" loading="lazy"></button>
+        <button class="shot" type="button" data-src="UNITE_left_side.jfif" data-alt="The UNITE self-driving lab, left side"><img src="UNITE_left_side.jfif" alt="The UNITE self-driving lab, left side" loading="lazy"></button>
+        <button class="shot" type="button" data-src="UNITE_right_side.jfif" data-alt="The UNITE self-driving lab, right side"><img src="UNITE_right_side.jfif" alt="The UNITE self-driving lab, right side" loading="lazy"></button>
       </div>
 
       <div class="module-list">
@@ -319,7 +325,22 @@
         </div>
       </article>
 
-      <h3 style="margin-top:3rem">Earlier builds</h3>
+      <h3 style="margin-top:3rem">More builds and studies</h3>
+
+      <article class="row">
+        <div class="shots-3">
+          <button class="shot wide" type="button" data-src="PIR_sensor_conditioner_circuit.jpg" data-alt="Schematic of the low-noise PIR sensor conditioner circuit"><img src="PIR_sensor_conditioner_circuit.jpg" alt="Schematic of the low-noise PIR sensor conditioner circuit" loading="lazy"></button>
+          <button class="shot" type="button" data-src="PIR_ac_analysis.jpg" data-alt="AC analysis plot of the PIR sensor conditioner circuit"><img src="PIR_ac_analysis.jpg" alt="AC analysis plot of the PIR sensor conditioner circuit" loading="lazy"></button>
+          <button class="shot" type="button" data-src="PIR_transient_analysis.jpg" data-alt="Transient analysis plot of the PIR sensor conditioner circuit"><img src="PIR_transient_analysis.jpg" alt="Transient analysis plot of the PIR sensor conditioner circuit" loading="lazy"></button>
+        </div>
+        <div>
+          <h3>Low-noise, long-range PIR sensor conditioner</h3>
+          <p class="where">Self-directed project for MTE 220, built on a TI reference design</p>
+          <p>A two-stage band-pass amplifier from TI's Analog Engineer's Circuit Cookbook. It turns the millivolt signal from a PIR motion sensor into one a window comparator or ADC can use, with 90 dB of gain between 0.7 and 10 Hz on a single 5 V supply. I taught myself how the active filters work before they came up in class, then built the circuit in LTspice and ran AC and transient analyses.</p>
+          <p>At 2 Hz, a 10 mV input came out of the first stage as 2.5 V &plusmn; 1.77 V, matching the predicted 45 dB, and the second stage clipped to the 0 V and 5 V rails as expected. The AC sweep showed less gain than the design called for, which I suspect is the simulator's op-amp model not matching TI's part.</p>
+          <p class="tools">LTspice &middot; TLV9062 &middot; Active band-pass filters &middot; AC and transient analysis</p>
+        </div>
+      </article>
 
       <article class="row compact">
         <div class="shots">
@@ -350,7 +371,7 @@
         </div>
         <div>
           <h3>Traffic light prototype</h3>
-          <p>I programmed, wired, and assembled a traffic light that uses sensors and interrupts to behave like the real thing.</p>
+          <p>I programmed, wired, and assembled a traffic light that uses sensors and LEDs to behave like the real thing.</p>
         </div>
       </article>
     </section>
