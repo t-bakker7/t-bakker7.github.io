@@ -336,7 +336,7 @@
           <h3>Low-noise, long-range PIR sensor conditioner</h3>
           <p class="where">Self-directed project for MTE 220, built on a TI reference design</p>
           <p>A two-stage band-pass amplifier from TI's Analog Engineer's Circuit Cookbook. It turns the millivolt signal from a PIR motion sensor into one a window comparator or ADC can use, with 90 dB of gain between 0.7 and 10 Hz on a single 5 V supply. I taught myself how the active filters work before they came up in class, then built the circuit in LTspice and ran AC and transient analyses.</p>
-          <p>At 2 Hz, a 10 mV input came out of the first stage as 2.5 V &plusmn; 1.77 V, matching the predicted 45 dB, and the second stage clipped to the 0 V and 5 V rails as expected. The AC sweep showed less gain than the design called for, which I suspect is the simulator's op-amp model not matching TI's part.</p>
+          <p>At 1 Hz, a 10 mV input came out of the first stage as 2.5 V &plusmn; 1.77 V, matching the predicted 45 dB, and the second stage clipped to the 0 V and 5 V rails as expected. The AC sweep showed less gain than the design called for, which I suspect is the simulator's op-amp model not matching TI's part.</p>
           <p class="tools">LTspice &middot; TLV9062 &middot; Active band-pass filters &middot; AC and transient analysis</p>
         </div>
       </article>
